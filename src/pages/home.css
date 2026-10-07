@@ -41,7 +41,7 @@
     min-height: 92vh;
 
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 
     padding: 120px 2rem 100px;
@@ -62,54 +62,43 @@
 }
 
 
-/* Estrelas sutis */
+/* =========================================================
+   HERO BANNER
+========================================================= */
 
-.home-hero::before {
-    content: "";
-
+.hero-banner {
     position: absolute;
+
     inset: 0;
 
-    pointer-events: none;
+    z-index: 0;
 
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,0.65) 1px, transparent 1px),
-        radial-gradient(circle, rgba(120,190,255,0.45) 1px, transparent 1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background-size:
-        120px 120px,
-        190px 190px;
+    overflow: hidden;
 
-    background-position:
-        10px 20px,
-        70px 100px;
-
-    opacity: 0.22;
+    background: #03060d;
 }
 
 
-/* Brilho central */
+.hero-banner img {
+    width: 100%;
+    height: 100%;
 
-.home-hero::after {
-    content: "";
+    object-fit: cover;
 
-    position: absolute;
+    object-position: center center;
 
-    width: 650px;
-    height: 650px;
+    display: block;
 
-    left: 50%;
-    top: 35%;
+    filter:
+        brightness(0.82)
+        saturate(0.92)
+        contrast(1.05);
 
-    transform: translate(-50%, -50%);
-
-    background: radial-gradient(
-        circle,
-        rgba(53, 151, 220, 0.12),
-        transparent 68%
-    );
-
-    pointer-events: none;
+    transform: scale(1.01);
 }
 
 
@@ -119,14 +108,87 @@
 
 .hero-overlay {
     position: absolute;
+
     inset: 0;
+
+    z-index: 1;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(3, 6, 14, 0.35),
-            rgba(3, 6, 14, 0.05) 45%,
-            rgba(3, 6, 14, 0.90)
+            rgba(3, 6, 14, 0.10),
+            rgba(3, 6, 14, 0.02) 35%,
+            rgba(3, 6, 14, 0.35) 55%,
+            rgba(3, 6, 14, 0.94) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO ATMOSPHERE
+========================================================= */
+
+.home-hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.55) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle,
+            rgba(120,190,255,0.35) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        140px 140px,
+        210px 210px;
+
+    background-position:
+        10px 20px,
+        70px 100px;
+
+    opacity: 0.12;
+}
+
+
+/* =========================================================
+   HERO CENTRAL GLOW
+========================================================= */
+
+.home-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(53, 151, 220, 0.08),
+            transparent 68%
         );
 
     pointer-events: none;
@@ -139,21 +201,26 @@
 
 .hero-content {
     position: relative;
-    z-index: 2;
+
+    z-index: 4;
 
     width: 100%;
-    max-width: 900px;
+    max-width: 850px;
+
+    margin-top: auto;
 
     text-align: center;
 }
 
 
-/* Pequeno título superior */
+/* =========================================================
+   HERO EYEBROW
+========================================================= */
 
 .hero-eyebrow {
     margin: 0 0 25px;
 
-    color: #9fb5ca;
+    color: #c3d4e4;
 
     font-size: 0.72rem;
     font-weight: 700;
@@ -162,59 +229,10 @@
 
     text-transform: uppercase;
 
-    opacity: 0.85;
-}
-
-
-/* =========================================================
-   LOGO / TÍTULO
-========================================================= */
-
-.hero-content h1 {
-    margin: 0;
-
-    display: flex;
-    flex-direction: column;
-
-    color: #e9edf3;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: clamp(4rem, 10vw, 8rem);
-
-    line-height: 0.82;
-
-    letter-spacing: 0.04em;
-
-    text-transform: uppercase;
+    opacity: 0.90;
 
     text-shadow:
-        0 0 20px rgba(91, 177, 255, 0.25),
-        0 10px 40px rgba(0, 0, 0, 0.8);
-}
-
-
-/* ERYON */
-
-.hero-content h1::first-line {
-    color: #f1f3f7;
-}
-
-
-/* CHRONICLES */
-
-.hero-content h1 span {
-    margin-top: 18px;
-
-    color: #7dbbe8;
-
-    font-size: 0.53em;
-
-    letter-spacing: 0.18em;
-
-    text-shadow:
-        0 0 25px rgba(77, 170, 235, 0.35),
-        0 5px 20px rgba(0, 0, 0, 0.8);
+        0 2px 12px rgba(0, 0, 0, 0.9);
 }
 
 
@@ -225,15 +243,18 @@
 .hero-description {
     max-width: 650px;
 
-    margin: 45px auto 35px;
+    margin: 0 auto 35px;
 
-    color: #aab6c6;
+    color: #d0dae5;
 
     font-size: 1.05rem;
 
     line-height: 1.8;
 
     letter-spacing: 0.02em;
+
+    text-shadow:
+        0 2px 15px rgba(0, 0, 0, 0.95);
 }
 
 
@@ -243,8 +264,10 @@
 
 .hero-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 12px;
 
     min-width: 240px;
@@ -283,9 +306,11 @@
         filter 0.3s ease;
 }
 
+
 .hero-button span {
     font-size: 0.8rem;
 }
+
 
 .hero-button:hover {
     transform: translateY(-4px);
@@ -305,7 +330,7 @@
 .hero-scroll {
     position: absolute;
 
-    z-index: 3;
+    z-index: 5;
 
     bottom: 30px;
     left: 50%;
@@ -318,14 +343,18 @@
 
     gap: 10px;
 
-    color: #738398;
+    color: #b0bdcc;
 
     font-size: 0.62rem;
 
     letter-spacing: 0.22em;
 
     white-space: nowrap;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.9);
 }
+
 
 .scroll-line {
     width: 1px;
@@ -359,6 +388,7 @@
     text-transform: uppercase;
 }
 
+
 .section-heading h2 {
     margin: 0;
 
@@ -374,6 +404,7 @@
 
     letter-spacing: -0.02em;
 }
+
 
 .section-heading h2 span {
     color: #83c2ed;
@@ -438,6 +469,7 @@
     line-height: 1.9;
 }
 
+
 .introduction-content p:last-child {
     margin-bottom: 0;
 
@@ -478,8 +510,6 @@
 }
 
 
-/* Grande brilho decorativo */
-
 .story-preview::before {
     content: "";
 
@@ -506,8 +536,6 @@
     pointer-events: none;
 }
 
-
-/* Linhas decorativas */
 
 .story-preview::after {
     content: "";
@@ -594,7 +622,9 @@
 
 .story-button {
     display: inline-flex;
+
     align-items: center;
+
     gap: 18px;
 
     margin-top: 20px;
@@ -997,13 +1027,38 @@
 @media (max-width: 600px) {
 
     .home-hero {
-        min-height: 85vh;
+        min-height: 88vh;
 
         padding: 100px 1.3rem 80px;
+
+        align-items: flex-end;
+    }
+
+
+    .hero-banner img {
+        object-position: center center;
+
+        filter:
+            brightness(0.72)
+            saturate(0.88)
+            contrast(1.05);
+    }
+
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(3, 6, 14, 0.20),
+                rgba(3, 6, 14, 0.12) 35%,
+                rgba(3, 6, 14, 0.96) 100%
+            );
     }
 
 
     .hero-eyebrow {
+        margin-bottom: 20px;
+
         font-size: 0.58rem;
 
         letter-spacing: 0.22em;
@@ -1012,22 +1067,8 @@
     }
 
 
-    .hero-content h1 {
-        font-size: clamp(3.2rem, 17vw, 5rem);
-    }
-
-
-    .hero-content h1 span {
-        margin-top: 12px;
-
-        font-size: 0.5em;
-
-        letter-spacing: 0.12em;
-    }
-
-
     .hero-description {
-        margin-top: 35px;
+        margin-bottom: 30px;
 
         font-size: 0.9rem;
 
