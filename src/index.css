@@ -1,0 +1,88 @@
+/* ========================================
+   ERYON CHRONICLES
+      BASE GLOBAL
+      ======================================== */
+
+      :root {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  sans-serif;
+
+                      color: #f5f7fa;
+                          background-color: #060811;
+
+                              font-synthesis: none;
+                                  text-rendering: optimizeLegibility;
+                                      -webkit-font-smoothing: antialiased;
+                                          -moz-osx-font-smoothing: grayscale;
+                                          }
+
+
+                                          /* ========================================
+                                             RESET
+                                             ======================================== */
+
+                                             *,
+                                             *::before,
+                                             *::after {
+                                                 box-sizing: border-box;
+                                                 }
+
+
+                                                 html {
+                                                     width: 100%;
+                                                         min-height: 100%;
+
+                                                             margin: 0;
+                                                                 padding: 0;
+
+                                                                     background-color: #060811;
+                                                                     }
+
+
+                                                                     body {
+                                                                         width: 100%;
+                                                                             min-width: 320px;
+                                                                                 min-height: 100vh;
+
+                                                                                     margin: 0;
+                                                                                         padding: 0;
+
+                                                                                             background-color: #060811;
+                                                                                                 color: #f5f7fa;
+                                                                                                 }
+
+
+                                                                                                 button,
+                                                                                                 input,
+                                                                                                 textarea,
+                                                                                                 select {
+                                                                                                     font: inherit;
+                                                                                                     }
+
+
+                                                                                                     button {
+                                                                                                         cursor: pointer;
+                                                                                                         }
+
+
+                                                                                                         a {
+                                                                                                             color: inherit;
+                                                                                                                 text-decoration: none;
+                                                                                                                 }
+
+
+                                                                                                                 img,
+                                                                                                                 video {
+                                                                                                                     display: block;
+                                                                                                                         max-width: 100%;
+                                                                                                                         }
+
+
+                                                                                                                         /* ========================================
+                                                                                                                            ROOT DO REACT
+                                                                                                                            ======================================== */
+
+                                                                                                                            #root {
+                                                                                                                                width: 100%;
+                                                                                                                                    min-height: 100vh;
+                                                                                                                                    }
