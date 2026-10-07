@@ -10,6 +10,13 @@ function Home() {
 
             <section className="home-hero">
 
+                <div className="hero-banner">
+                    <img
+                        src="https://malveiracaiodev.github.io/FragmentosDaEternidade/assets/header-zZzbw1Jk.png"
+                        alt="Eryon Chronicles"
+                    />
+                </div>
+
                 <div className="hero-overlay"></div>
 
                 <div className="hero-content">
@@ -17,11 +24,6 @@ function Home() {
                     <p className="hero-eyebrow">
                         UM NOVO UNIVERSO ESTÁ DESPERTANDO
                     </p>
-
-                    <h1>
-                        Eryon
-                        <span>Chronicles</span>
-                    </h1>
 
                     <p className="hero-description">
                         Uma história sobre poder, destino, descobertas
