@@ -5,10 +5,11 @@ function Home() {
                 minHeight: "100vh",
                 background: "#050811",
                 color: "#ffffff",
-                padding: "40px",
+                padding: "60px 30px",
+                boxSizing: "border-box",
             }}
         >
-            <h1>ERYON CHRONICLES</h1>
+            <h1>Eryon Chronicles</h1>
 
             <p>
                 A página Home está funcionando.
