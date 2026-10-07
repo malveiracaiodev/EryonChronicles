@@ -38,10 +38,13 @@
 }
 
 
-/* Banner */
+/* =========================================================
+   BANNER
+========================================================= */
 
 .hero-banner {
     position: absolute;
+
     inset: 0;
 
     width: 100%;
@@ -54,10 +57,11 @@
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-    object-position: center;
-
     display: block;
+
+    object-fit: cover;
+
+    object-position: center center;
 
     filter:
         brightness(0.72)
@@ -65,17 +69,20 @@
 }
 
 
-/* Escurecimento */
+/* =========================================================
+   SOBREPOSIÇÃO DO HERO
+========================================================= */
 
 .hero-overlay {
     position: absolute;
+
     inset: 0;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(5, 8, 17, 0.15) 0%,
-            rgba(5, 8, 17, 0.15) 40%,
+            rgba(5, 8, 17, 0.12) 0%,
+            rgba(5, 8, 17, 0.16) 38%,
             rgba(5, 8, 17, 0.78) 100%
         );
 
@@ -83,7 +90,9 @@
 }
 
 
-/* Brilho atmosférico */
+/* =========================================================
+   BRILHO ATMOSFÉRICO
+========================================================= */
 
 .home-hero::before {
     content: "";
@@ -98,11 +107,12 @@
 
     transform: translateX(-50%);
 
-    background: radial-gradient(
-        circle,
-        rgba(55, 120, 255, 0.14),
-        transparent 70%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(55, 120, 255, 0.14),
+            transparent 70%
+        );
 
     pointer-events: none;
 
@@ -110,7 +120,9 @@
 }
 
 
-/* Conteúdo */
+/* =========================================================
+   CONTEÚDO DO HERO
+========================================================= */
 
 .hero-content {
     position: relative;
@@ -125,7 +137,9 @@
 }
 
 
-/* Pequeno título */
+/* =========================================================
+   EYEBROW
+========================================================= */
 
 .hero-eyebrow {
     margin: 0 0 24px;
@@ -139,7 +153,9 @@
 }
 
 
-/* Descrição */
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
 
 .hero-description {
     max-width: 700px;
@@ -161,7 +177,9 @@
 }
 
 
-/* Botão */
+/* =========================================================
+   BOTÃO DO HERO
+========================================================= */
 
 .hero-button {
     display: inline-flex;
@@ -214,7 +232,9 @@
 }
 
 
-/* Scroll */
+/* =========================================================
+   INDICADOR DE SCROLL
+========================================================= */
 
 .hero-scroll {
     position: absolute;
@@ -243,11 +263,12 @@
     width: 1px;
     height: 42px;
 
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.65),
-        transparent
-    );
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.65),
+            transparent
+        );
 }
 
 
@@ -730,7 +751,7 @@
 
 
 /* =========================================================
-   RESPONSIVIDADE
+   TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -764,58 +785,113 @@
 }
 
 
+/* =========================================================
+   CELULAR
+========================================================= */
+
 @media (max-width: 600px) {
 
+    /*
+       No celular, reduzimos a altura do Hero.
+       Isso diminui a necessidade de ampliar/cortar
+       excessivamente o banner.
+    */
+
     .home-hero {
-        min-height: 78vh;
+        min-height: 76vh;
     }
 
+
+    /*
+       Mantemos a imagem preenchendo o Hero,
+       mas deslocamos ligeiramente o enquadramento
+       para preservar melhor o centro da arte.
+    */
+
     .hero-banner img {
-        object-position: center;
+        object-position: 50% center;
+
+        filter:
+            brightness(0.70)
+            saturate(0.9);
     }
+
+
+    /*
+       Conteúdo um pouco mais baixo para não
+       competir tanto com o título da arte.
+    */
 
     .hero-content {
         width: 88%;
 
-        margin-top: 70px;
+        margin-top: 90px;
     }
 
-    .hero-eyebrow {
-        font-size: 0.6rem;
 
-        letter-spacing: 0.18em;
+    .hero-eyebrow {
+        margin-bottom: 18px;
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.16em;
 
         line-height: 1.6;
     }
 
+
     .hero-description {
+        max-width: 340px;
+
+        margin-bottom: 28px;
+
         font-size: 0.92rem;
 
         line-height: 1.7;
     }
 
+
     .hero-button {
         width: 100%;
+
         max-width: 230px;
 
         padding: 14px 20px;
+
+        font-size: 0.72rem;
     }
+
 
     .hero-scroll {
         bottom: 20px;
 
-        font-size: 0.52rem;
+        font-size: 0.5rem;
+
+        letter-spacing: 0.16em;
     }
+
+
+    .scroll-line {
+        height: 36px;
+    }
+
+
+    /* INTRODUÇÃO */
 
     .home-introduction {
         padding-top: 90px;
+
         padding-bottom: 90px;
     }
+
+
+    /* HISTÓRIA */
 
     .story-preview {
         min-height: 600px;
 
         padding-top: 90px;
+
         padding-bottom: 90px;
     }
 
@@ -827,8 +903,12 @@
         font-size: 3.2rem;
     }
 
+
+    /* EXPLORAR */
+
     .explore-section {
         padding-top: 90px;
+
         padding-bottom: 100px;
     }
 
@@ -838,10 +918,14 @@
         min-height: 230px;
     }
 
+
+    /* ENCERRAMENTO */
+
     .home-closing {
         min-height: 430px;
 
         padding-top: 80px;
+
         padding-bottom: 80px;
     }
 
