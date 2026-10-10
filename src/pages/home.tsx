@@ -22,7 +22,7 @@ function Home() {
                 <div className="hero-content">
 
                     <p className="hero-eyebrow">
-                        UM NOVO UNIVERSO ESTÁ DESPERTANDO
+                       A HISTÓRIA ESTÁ PARA COMEÇAR...
                     </p>
 
                     <p className="hero-description">
