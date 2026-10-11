@@ -1,0 +1,657 @@
+/* =====================================================
+   ERYON CHRONICLES — LEITOR DE CAPÍTULOS
+===================================================== */
+
+.chapter-reader {
+    --reader-bg: #070b15;
+    --reader-panel: #0d1422;
+    --reader-gold: #d9b66d;
+    --reader-blue: #65c9ff;
+    --reader-text: #e8edf5;
+    --reader-muted: #929eb2;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 48px 20px 64px;
+
+    color: var(--reader-text);
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(35, 83, 135, 0.18),
+            transparent 55%
+        ),
+        var(--reader-bg);
+
+    font-family: Georgia, "Times New Roman", serif;
+    box-sizing: border-box;
+}
+
+.chapter-reader *,
+.chapter-reader *::before,
+.chapter-reader *::after {
+    box-sizing: border-box;
+}
+
+/* =====================================================
+   CABEÇALHO DO CAPÍTULO
+===================================================== */
+
+.chapter-reader-header {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.chapter-reader-series {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    color: var(--reader-gold);
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.chapter-reader-header h1 {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.chapter-reader-subtitle {
+    margin: 16px 0 0;
+
+    color: var(--reader-blue);
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-style: italic;
+}
+
+.chapter-reader-synopsis {
+    max-width: 680px;
+    margin: 24px auto 0;
+
+    color: var(--reader-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   BARRA DE PROGRESSO
+===================================================== */
+
+.chapter-reader-progress {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 36px;
+}
+
+.chapter-progress-labels {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 12px;
+
+    color: var(--reader-muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+.chapter-progress-track {
+    width: 100%;
+    height: 4px;
+    overflow: hidden;
+
+    background: #202a3a;
+    border-radius: 99px;
+}
+
+.chapter-progress-fill {
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #438fd1,
+        var(--reader-blue),
+        var(--reader-gold)
+    );
+
+    border-radius: inherit;
+    transition: width 250ms ease;
+}
+
+/* =====================================================
+   ÁREA PRINCIPAL DA CENA
+===================================================== */
+
+.chapter-reader-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: clamp(20px, 5vw, 48px);
+
+    background: rgba(13, 20, 34, 0.8);
+    border: 1px solid rgba(129, 160, 199, 0.14);
+    border-radius: 14px;
+
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+}
+
+.chapter-scene-heading {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.chapter-scene-heading span {
+    color: var(--reader-gold);
+    font-family: Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+}
+
+.chapter-scene-heading h2 {
+    margin: 12px 0 0;
+
+    color: #ffffff;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.chapter-content-stage {
+    width: 100%;
+    min-width: 0;
+}
+
+/* =====================================================
+   NARRAÇÃO LITERÁRIA
+===================================================== */
+
+.chapter-narration {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 12px 0 20px;
+}
+
+.chapter-content-label {
+    display: block;
+    margin-bottom: 20px;
+
+    color: var(--reader-gold);
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+}
+
+.chapter-narration p {
+    margin: 0;
+
+    color: #dce5f2;
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    line-height: 2;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   DIÁLOGOS
+===================================================== */
+
+.chapter-dialogue {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 26px 28px;
+
+    background: rgba(27, 45, 67, 0.42);
+    border-left: 3px solid var(--reader-blue);
+    border-radius: 0 8px 8px 0;
+}
+
+.chapter-dialogue-character {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--reader-blue);
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.chapter-dialogue p {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    font-style: italic;
+    line-height: 1.8;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   IMAGENS
+===================================================== */
+
+.chapter-image-content {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.chapter-image-content img {
+    display: block;
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+
+    border: 1px solid rgba(217, 182, 109, 0.18);
+    border-radius: 8px;
+}
+
+.chapter-image-content figcaption {
+    margin-top: 14px;
+
+    color: var(--reader-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   VÍDEO CINEMATOGRÁFICO
+===================================================== */
+
+.chapter-video-content {
+    width: 100%;
+}
+
+.chapter-video-description {
+    max-width: 760px;
+    margin: 0 auto 20px;
+
+    color: #b7c5d8;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.chapter-video-stage {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    background: #000000;
+    border: 1px solid rgba(101, 201, 255, 0.2);
+    border-radius: 10px;
+
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.38);
+}
+
+.chapter-video {
+    display: block;
+    width: 100%;
+    max-height: 75vh;
+    aspect-ratio: 16 / 9;
+
+    background: #000000;
+    object-fit: contain;
+}
+
+/* Camada que posiciona os textos sobre o vídeo */
+
+.chapter-video-overlay-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* =====================================================
+   NARRAÇÃO SOBRE O VÍDEO
+===================================================== */
+
+.chapter-video-narration {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    left: 5%;
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px 22px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        180deg,
+        rgba(3, 7, 14, 0.76),
+        rgba(3, 7, 14, 0.9)
+    );
+
+    border-top: 1px solid rgba(217, 182, 109, 0.65);
+    border-radius: 5px;
+
+    animation: chapter-overlay-appear 300ms ease both;
+}
+
+.chapter-video-narration span {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--reader-gold);
+    font-family: Arial, sans-serif;
+    font-size: clamp(0.55rem, 1.4vw, 0.7rem);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+.chapter-video-narration p {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(0.85rem, 2.2vw, 1.15rem);
+    line-height: 1.55;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+    text-shadow: 0 2px 8px #000000;
+}
+
+/* =====================================================
+   DIÁLOGO SOBRE O VÍDEO
+===================================================== */
+
+.chapter-video-dialogue {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    left: 5%;
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 14px 22px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        180deg,
+        rgba(3, 7, 14, 0.78),
+        rgba(3, 7, 14, 0.94)
+    );
+
+    border-bottom: 2px solid var(--reader-blue);
+    border-radius: 5px;
+
+    animation: chapter-overlay-appear 300ms ease both;
+}
+
+.chapter-video-dialogue span {
+    display: block;
+    margin-bottom: 7px;
+
+    color: var(--reader-blue);
+    font-family: Arial, sans-serif;
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.chapter-video-dialogue p {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(0.9rem, 2.3vw, 1.2rem);
+    font-style: italic;
+    line-height: 1.5;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+    text-shadow: 0 2px 8px #000000;
+}
+
+/* =====================================================
+   ANIMAÇÃO DOS TEXTOS
+===================================================== */
+
+@keyframes chapter-overlay-appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   BOTÕES DE NAVEGAÇÃO
+===================================================== */
+
+.chapter-reader-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+.chapter-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 48px;
+    padding: 12px 22px;
+
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    background: #111c2d;
+    border: 1px solid rgba(137, 165, 201, 0.28);
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition:
+        background 200ms ease,
+        border-color 200ms ease,
+        transform 200ms ease,
+        opacity 200ms ease;
+}
+
+.chapter-nav-button span {
+    font-size: 1.2rem;
+}
+
+.chapter-nav-next {
+    color: #07101d;
+
+    background: linear-gradient(
+        135deg,
+        #f0d69a,
+        var(--reader-gold)
+    );
+
+    border-color: var(--reader-gold);
+}
+
+.chapter-nav-button:not(:disabled):hover {
+    transform: translateY(-2px);
+}
+
+.chapter-nav-previous:not(:disabled):hover {
+    background: #1a2b43;
+    border-color: var(--reader-blue);
+}
+
+.chapter-nav-next:not(:disabled):hover {
+    background: #f3dfb1;
+}
+
+.chapter-nav-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.chapter-nav-button:focus-visible {
+    outline: 2px solid var(--reader-blue);
+    outline-offset: 4px;
+}
+
+.chapter-nav-counter {
+    color: var(--reader-muted);
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.chapter-reader-manual-note {
+    max-width: 600px;
+    margin: 24px auto 0;
+
+    color: #7e8ba0;
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* =====================================================
+   RESPONSIVIDADE — CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+    .chapter-reader {
+        padding: 32px 12px 44px;
+    }
+
+    .chapter-reader-header {
+        margin-bottom: 32px;
+    }
+
+    .chapter-reader-series {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+    }
+
+    .chapter-reader-synopsis {
+        font-size: 0.92rem;
+    }
+
+    .chapter-progress-labels {
+        align-items: flex-start;
+        font-size: 0.67rem;
+    }
+
+    .chapter-progress-labels span:first-child {
+        max-width: 75%;
+        line-height: 1.5;
+    }
+
+    .chapter-reader-content {
+        padding: 22px 16px;
+        border-radius: 10px;
+    }
+
+    .chapter-scene-heading {
+        margin-bottom: 24px;
+    }
+
+    .chapter-narration p {
+        line-height: 1.85;
+    }
+
+    .chapter-dialogue {
+        padding: 20px 16px;
+    }
+
+    .chapter-video-stage {
+        border-radius: 6px;
+    }
+
+    .chapter-video {
+        max-height: 65vh;
+    }
+
+    .chapter-video-narration,
+    .chapter-video-dialogue {
+        right: 3%;
+        bottom: 10%;
+        left: 3%;
+
+        padding: 8px 10px;
+    }
+
+    .chapter-video-narration span,
+    .chapter-video-dialogue span {
+        margin-bottom: 4px;
+        letter-spacing: 0.08em;
+    }
+
+    .chapter-video-narration p,
+    .chapter-video-dialogue p {
+        line-height: 1.35;
+    }
+
+    .chapter-reader-navigation {
+        gap: 8px;
+        margin-top: 22px;
+    }
+
+    .chapter-nav-button {
+        gap: 6px;
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .chapter-nav-counter {
+        font-size: 0.7rem;
+    }
+
+    .chapter-reader-manual-note {
+        font-size: 0.75rem;
+    }
+}
+
+/* =====================================================
+   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .chapter-reader *,
+    .chapter-reader *::before,
+    .chapter-reader *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
